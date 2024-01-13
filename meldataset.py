@@ -140,6 +140,7 @@ class MelDataset(torch.utils.data.Dataset):
                                   self.sampling_rate, self.hop_size, self.win_size, self.fmin, self.fmax,
                                   center=False)
         else:
+            print(self.base_mels_path, filename)
             mel = np.load(
                 os.path.join(self.base_mels_path, os.path.splitext(filename)[0] + '.mel'))
             mel = torch.from_numpy(mel)
