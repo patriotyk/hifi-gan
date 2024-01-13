@@ -141,11 +141,9 @@ class MelDataset(torch.utils.data.Dataset):
                                   center=False)
         else:
             
-            print("BEFORESPLIT", filename)
             mel_file =  os.path.splitext(filename)[0] + '.mel'
-            print(mel_file)
-            mel = np.load(mel_file)['arr_0']
-            mel = torch.from_numpy(mel)
+
+            mel = torch.load(mel_file)
 
             if len(mel.shape) < 3:
                 mel = mel.unsqueeze(0)
