@@ -141,7 +141,9 @@ class MelDataset(torch.utils.data.Dataset):
                                   center=False)
         else:
             
+            print("BEFORESPLIT", filename)
             mel_file =  os.path.splitext(filename)[0] + '.mel'
+            print(mel_file)
             mel = np.load(mel_file)
             mel = torch.from_numpy(mel)
 
