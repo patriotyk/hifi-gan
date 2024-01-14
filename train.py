@@ -193,9 +193,6 @@ def train(rank, a, h):
                             x, y, _, y_mel = batch
                             y_g_hat = generator(x.to(device))
                             y_mel = torch.autograd.Variable(y_mel.to(device, non_blocking=True))
-                            print(h.n_fft, h.num_mels, h.sampling_rate,
-                                                          h.hop_size, h.win_size,
-                                                          h.fmin, h.fmax_for_loss)
                             y_g_hat_mel = mel_spectrogram(y_g_hat.squeeze(1), h.n_fft, h.num_mels, h.sampling_rate,
                                                           h.hop_size, h.win_size,
                                                           h.fmin, h.fmax_for_loss)
